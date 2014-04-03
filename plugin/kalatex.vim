@@ -314,7 +314,7 @@ function! kalatex#add_at_symbol(s)
 endfunction
 
 function! kalatex#execute_snippet_string(s)
-	execute "normal! a" . a:s . "\<Esc>F@"
+	execute "normal! i" . a:s . "\<Esc>F@"
 	execute "normal! x"
 
 	if kalatex#end_of_line() && a:s[-1:]=='@'
