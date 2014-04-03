@@ -300,9 +300,11 @@ endfunction
 
 
 function! kalatex#end_of_line()
-	let a = col('$')
-	let b = col('.')
-	return (a == b+1)
+	"let a = col('$')
+	"let b = col('.')
+	let c0 = getline('.')[col('.') - 1]
+	return c0 == ''
+	"return (a == b+1) && c0 == ''
 endfunction
 
 function! kalatex#add_at_symbol(s)
@@ -314,10 +316,11 @@ function! kalatex#add_at_symbol(s)
 endfunction
 
 function! kalatex#execute_snippet_string(s)
+	let end_of_line = kalatex#end_of_line()
 	execute "normal! i" . a:s . "\<Esc>F@"
 	execute "normal! x"
 
-	if kalatex#end_of_line() && a:s[-1:]=='@'
+	if end_of_line && a:s[-1:]=='@'
 		startinsert!
 	else
 		startinsert
