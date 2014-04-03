@@ -22,7 +22,7 @@ let g:backtick_dictionary = {
 			\ 'g' : ['\gamma'],
 			\ 'h' : ['\eta'],
 			\ 'i' : ['\in', '\iota'],
-			\ 'j' : [],
+			\ 'j' : ['jerry'],
 			\ 'k' : ['\kappa'],
 			\ 'l' : ['\lambda'],
 			\ 'm' : ['\mu'],
