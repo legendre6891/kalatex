@@ -42,7 +42,7 @@ let g:backtick_dictionary = {
 			\ '/' : ['\frac{@}{}'],
 			\ 'I' : ['\int{@}{}'],
 			\ '(' : ['\bigl( @ \bigr)', '\biggl( @ \biggr)', '\left( @ \right)'],
-			\ '`' : ['`']}
+			\ '~' : ['`']}
 
 
 let g:quote_dictionary = {
@@ -51,11 +51,12 @@ let g:quote_dictionary = {
 			\ 'b' : ['\textbf{@}'],
 			\ 'i' : ['\textit{@}'],
 			\ 'I' : ['\textit'],
-			\ "'" : ["'"]}
+			\ '"' : ["'"]}
 
 let g:semicolon_dictionary = {
-			\ ';' : [';'],
-			\ '/' : ['\frac{@}{}'],
+			\ ':' : [';'],
+			\ '/' : ['\frac{@}{}', '\dfrac{@}{}'],
+			\ 'f' : ['\frac{@}{}', '\dfrac{@}{}'],
 			\ 's' : ['\sum_{@}^{}'],
 			\ 'p' : ['\product_{@}^{}'],
 			\ 'i' : ['\int_{@}^{}']}
@@ -336,7 +337,6 @@ function! kalatex#get_backtick_string(index)
 		if has_key(g:backtick_dictionary, s)
 			let l  = g:backtick_dictionary[s]
 			if a:index < len(l)
-				"return l[a:index]
 				call kalatex#execute_snippet_string(kalatex#add_at_symbol(l[a:index]))
 			endif
 		endif
@@ -357,7 +357,6 @@ function! kalatex#get_quote_string(index)
 		if has_key(g:quote_dictionary, s)
 			let l  = g:quote_dictionary[s]
 			if a:index < len(l)
-				"return l[a:index]
 				call kalatex#execute_snippet_string(kalatex#add_at_symbol(l[a:index]))
 			endif
 		endif
@@ -377,7 +376,6 @@ function! kalatex#get_semicolon_string(index)
 		if has_key(g:semicolon_dictionary, s)
 			let l = g:semicolon_dictionary[s]
 			if a:index < len(l)
-				"return l[a:index]
 				call kalatex#execute_snippet_string(kalatex#add_at_symbol(l[a:index]))
 			endif
 		endif
