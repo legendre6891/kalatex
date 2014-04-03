@@ -1,5 +1,6 @@
 autocmd BufNewFile,BufRead *.tex setlocal magic
 autocmd BufNewFile,BufRead *.tex exec 'iu ' g:tab_key
+autocmd BufNewFile,BufRead *.tex call kalatex#setup_keybinds()
 
 " UNCOMENT THE NEXT SEVERAL LINES IF YOU WANT ULTISNIPS SUPPORT
 " =======================
