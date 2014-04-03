@@ -7,7 +7,7 @@ autocmd BufNewFile,BufRead *.tex exec 'iu ' g:tab_key
 
 
 " COMMENT THE NEXT LINE IF YOU WANT ULTISNIPS SUPPORT
-autocmd BufNewFile,BufRead *.tex exec 'inoremap <buffer> <silent> ' . g:tab_key ' kalatex#clean_and_jump()<CR>'
+autocmd BufNewFile,BufRead *.tex exec 'inoremap <buffer> <silent> ' . g:tab_key ' <C-R>=kalatex#clean_and_jump()<CR>'
 
 autocmd BufNewFile,BufRead *.tex exec 'inoremap <buffer> <silent> ' . g:backtick_key ' <C-R>=kalatex#get_backtick_string(0)<cr>'
 autocmd BufNewFile,BufRead *.tex exec 'inoremap <buffer> <silent> ' . g:quote_key ' <C-R>=kalatex#get_quote_string(0)<cr>'
